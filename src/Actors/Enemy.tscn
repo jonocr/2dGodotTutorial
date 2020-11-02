@@ -32,8 +32,7 @@ physics_process_parent = true
 [node name="StompDetector" type="Area2D" parent="."]
 modulate = Color( 0, 0.0627451, 0.745098, 1 )
 position = Vector2( 0, -8 )
-monitorable = false
-collision_layer = 0
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
 position = Vector2( 0, -78 )
