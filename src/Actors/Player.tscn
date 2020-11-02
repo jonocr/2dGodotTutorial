@@ -7,7 +7,7 @@
 extents = Vector2( 40, 44 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 43, 46 )
+extents = Vector2( 43, 44 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
@@ -25,6 +25,15 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -252 )
 current = true
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+drag_margin_left = 0.0
+drag_margin_right = 0.0
 
 [node name="EnemyDetector" type="Area2D" parent="."]
 monitorable = false
@@ -36,3 +45,4 @@ modulate = Color( 0.0705882, 0.0823529, 0.403922, 1 )
 position = Vector2( 0, -44 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
