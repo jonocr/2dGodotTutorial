@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/font_title.tres" type="DynamicFont" id=1]
+
+[node name="Title" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -169.0
+margin_top = 162.757
+margin_right = 169.0
+margin_bottom = 279.757
+custom_fonts/font = ExtResource( 1 )
+text = "First 2d Game
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
