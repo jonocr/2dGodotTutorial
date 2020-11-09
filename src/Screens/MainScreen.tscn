@@ -45,3 +45,7 @@ __meta__ = {
 next_scene_path = "res://src/Levels/Level01.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 68.0
+margin_right = 421.0
+margin_bottom = 132.0

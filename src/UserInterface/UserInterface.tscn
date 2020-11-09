@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=5]
+
+[node name="UserInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -186.834
+margin_top = 41.9526
+margin_right = -65.8342
+margin_bottom = 72.9526
+text = "Score: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.254902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -144.0
+margin_right = 199.0
+margin_bottom = 145.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_right = 398.0
+margin_bottom = 93.0
+
+[node name="ChangeSceneButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 2 )]
+margin_top = 97.0
+margin_right = 398.0
+margin_bottom = 191.0
+text = "Main Screen"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 195.0
+margin_right = 398.0
+margin_bottom = 289.0
+
+[node name="Title" type="Label" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -211.778
+margin_right = 199.0
+margin_bottom = -180.778
+text = "Paused"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
