@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tileset.png" type="Texture" id=2]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/background.png" type="Texture" id=4]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/Portal2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=10]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=2]
 0/name = "tileset.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -20,24 +23,29 @@ points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 3 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="Level02" type="Node2D"]
 position = Vector2( -192.333, -11.3138 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 375.238 ],
 "_edit_vertical_guides_": [ 3199.09 ]
 }
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UserInterface" parent="UserInterface" instance=ExtResource( 6 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -56,7 +64,7 @@ __meta__ = {
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 191.193, 0 )
-tile_set = SubResource( 4 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 80, 80 )
 collision_layer = 8
 collision_mask = 0
@@ -74,17 +82,21 @@ speed = Vector2( 800, 1400 )
 limit_right = 3200
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 953.424, 637.934 )
+position = Vector2( 1272.33, 642.109 )
 
-[node name="Coin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1752.78, 47.2347 )
+[node name="coins" type="Node" parent="."]
 
-[node name="Coin2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2904.55, 191.119 )
+[node name="Coin" parent="coins" instance=ExtResource( 5 )]
+position = Vector2( 1560.45, 35.9209 )
 
-[node name="Coin3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2788.93, 192.523 )
+[node name="Coin2" parent="coins" instance=ExtResource( 5 )]
+position = Vector2( 2712.22, 179.805 )
+
+[node name="Coin3" parent="coins" instance=ExtResource( 5 )]
+position = Vector2( 2596.6, 181.209 )
+
+[node name="Portal2D" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3031.94, 333.354 )
+next_scene = ExtResource( 10 )
 
 [editable path="Player"]
-
-[editable path="Coin"]

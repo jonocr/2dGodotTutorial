@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/UserInterface/PlayButton.gd" type="Script" id=1]
-[ext_resource path="res://src/UserInterface/QuitButton.gd" type="Script" id=2]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=5]
@@ -12,6 +11,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 5 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,27 +39,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Button" parent="Menu" instance=ExtResource( 4 )]
-margin_right = 421.0
-margin_bottom = 64.0
-size_flags_vertical = 3
+[node name="PlayButton" parent="Menu" instance=ExtResource( 4 )]
+margin_bottom = 63.0
 text = "PLAY AGAIN"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 next_scene_path = "res://src/Screens/MainScreen.tscn"
 
-[node name="QuitButton" type="Button" parent="Menu" instance=ExtResource( 3 )]
-margin_top = 68.0
+[node name="QuitButton" parent="Menu" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 67.0
 margin_right = 421.0
-margin_bottom = 132.0
-size_flags_vertical = 3
-text = "QUIT"
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 131.0
 
 [node name="Title" parent="." instance=ExtResource( 7 )]
 anchor_top = 0.5
@@ -81,5 +70,3 @@ margin_bottom = -31.8411
 text = "Your final score is %s
 You died times %s"
 align = 1
-[connection signal="button_up" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_button_up"]
-[connection signal="button_up" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_button_up"]
